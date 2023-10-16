@@ -4,6 +4,10 @@ from flask import Flask,request,jsonify
 
 app=Flask(__name__)
 
+@app.route("/",methods=["GET"])
+def home():
+    return("<h1>Go to /generate to get your sudoku boards</h1>")
+
 @app.route("/generate",methods=["GET"])
 def generateRoute():
     board = np.zeros((9,9),dtype=int)
