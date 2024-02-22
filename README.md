@@ -42,8 +42,8 @@ Follow the instructions below to set up and run the Sudoku web app on your local
 
 - **app.py**: The main Flask application file.
 - **templates**: Folder containing HTML templates.
-    - `index.html`: Home page with difficulty selection buttons.
-    - `game.html`: Template for displaying the Sudoku board for the selected difficulty.
+    - `selection.html`: Home page with difficulty selection buttons.
+    - `output.html`: Template for displaying the Sudoku board for the selected difficulty.
 
 ## License
 
