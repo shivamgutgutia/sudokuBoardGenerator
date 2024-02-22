@@ -42,8 +42,6 @@ def solve(board):
     if not location:
         return True
     row,col=location
-
-    count=0
     for num in range(1,10):
         if(isValid(num,row,col,board)):
             board[row,col]=num
@@ -72,11 +70,11 @@ def countSolve(board,count):
 
 def generateQuestion(solution,difficulty,count):
     if difficulty == "easy":
-        n= np.random.randint(36,39)
+        n= 25
     elif difficulty == "medium":
-        n = np.random.randint(39,42)
+        n = 35
     else:
-        n = np.random.randint(42,46)
+        n = 45
 
     question = solution.flatten()
     remove=np.random.choice(question.size,n,replace=False)
@@ -85,11 +83,11 @@ def generateQuestion(solution,difficulty,count):
     countSolve(question.copy(),count)
     return question
 
-def generate(board,difficulty="easy"):
+def generate(board, difficulty):
     solve(fillDiagonal(board))
     while(True):
         count=[0]
-        question = generateQuestion(board,"easy",count)
+        question = generateQuestion(board,difficulty,count)
         if count[0]==1:
             return question,board
     
