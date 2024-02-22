@@ -1,8 +1,11 @@
 from boardGenerator import *
 import numpy as np
-from flask import Flask,request,jsonify
+from flask import Flask,Response
 
 app=Flask(__name__)
+import json
+
+app = Flask(__name__)
 
 @app.route("/",methods=["GET"])
 def home():
@@ -12,10 +15,12 @@ def home():
 def generateRoute():
     board = np.zeros((9,9),dtype=int)
     question,solution=generate(board.copy(),"hard")
-    return jsonify({
+    jsonData = {
         "question":question.tolist(),
         "solution":solution.tolist()
-    })
+    }
+    jsonData = json.dumps(jsonData,indent=4)
+    return Response(jsonData,status=200,mimetype="application/json")
 
 if __name__ =="__main__":
     app.run()
