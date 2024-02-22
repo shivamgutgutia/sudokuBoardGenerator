@@ -1,28 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudoku Difficulty Selection</title>
-    <style>
-        body {
-            text-align: center;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sudoku Difficulty Selection</title>
+        <style>
+            body {
+                text-align: center;
+            }
 
-        .difficulty-btn {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Sudoku Difficulty Selection</h1>
+            .difficulty-btn {
+                margin: 10px;
+                padding: 10px 20px;
+                font-size: 16px;
+            }
 
-    <form action="/generate" method="get">
-        <button class="difficulty-btn" type="submit" name="difficulty" value="easy">Easy</button>
-        <button class="difficulty-btn" type="submit" name="difficulty" value="medium">Medium</button>
-        <button class="difficulty-btn" type="submit" name="difficulty" value="hard">Hard</button>
-    </form>
-</body>
+            .toggle-label {
+                margin-top: 20px;
+                font-size: 18px;
+            }
+
+            .toggle-container {
+                margin-top: 10px; /* Add space between toggle and text */
+            }
+
+            .toggle-switch {
+                position: relative;
+                display: inline-block;
+                width: 60px;
+                height: 34px;
+            }
+
+            .toggle-switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            .toggle-slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+            }
+
+            .toggle-slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+            }
+
+            input:checked + .toggle-slider {
+                background-color: #2196f3;
+            }
+
+            input:focus + .toggle-slider {
+                box-shadow: 0 0 1px #2196f3;
+            }
+
+            input:checked + .toggle-slider:before {
+                -webkit-transform: translateX(26px);
+                -ms-transform: translateX(26px);
+                transform: translateX(26px);
+            }
+
+            /* Rounded sliders */
+            .toggle-slider.round {
+                border-radius: 34px;
+            }
+
+            .toggle-slider.round:before {
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Sudoku Difficulty Selection</h1>
+
+        <form action="/generate" method="get">
+            <button
+                class="difficulty-btn"
+                type="submit"
+                name="difficulty"
+                value="easy"
+            >
+                Easy
+            </button>
+            <button
+                class="difficulty-btn"
+                type="submit"
+                name="difficulty"
+                value="medium"
+            >
+                Medium
+            </button>
+            <button
+                class="difficulty-btn"
+                type="submit"
+                name="difficulty"
+                value="hard"
+            >
+                Hard
+            </button>
+
+            <div class="toggle-label">Get output in raw JSON instead?</div>
+            <div class="toggle-container">
+                <label class="toggle-switch">
+                    <input type="checkbox" name="output_format" value="JSON" />
+                    <span class="toggle-slider round"></span>
+                </label>
+            </div>
+        </form>
+    </body>
 </html>
