@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Difficulty Selection</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .difficulty-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sudoku Difficulty Selection</h1>
+
+    <form action="/generate" method="get">
+        <button class="difficulty-btn" type="submit" name="difficulty" value="easy">Easy</button>
+        <button class="difficulty-btn" type="submit" name="difficulty" value="medium">Medium</button>
+        <button class="difficulty-btn" type="submit" name="difficulty" value="hard">Hard</button>
+    </form>
+</body>
+</html>
