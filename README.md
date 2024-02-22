@@ -16,7 +16,7 @@ Follow the instructions below to set up and run the Sudoku web app on your local
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/sudoku-web-app.git
+    git clone [https://github.com/your-username/sudoku-web-app.git](https://github.com/shivamgutgutia/sudokuBoardGenerator.git)
     cd sudoku-web-app
     ```
 
